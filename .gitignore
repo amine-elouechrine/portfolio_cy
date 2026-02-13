@@ -1,0 +1,61 @@
+# .gitignore - Portfolio Website
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Editor/IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary Files
+*.log
+*.tmp
+*.temp
+.cache/
+node_modules/
+
+# Build artifacts (if you add build process later)
+dist/
+build/
+*.min.css
+*.min.js
+*.map
+
+# Environment and config
+.env
+.env.local
+
+# Gemini/AI assistant files
+.gemini/
+
+# Git files
+.git/
+
+# Backup files
+*.bak
+*.backup
+*_backup
+
+# Large files that shouldn't be in git
+*.psd
+*.ai
+*.sketch
+*.fig
+
+# Keep these exceptions (DO include in git)
+!assets/images/favicon.ico
+!assets/fonts/

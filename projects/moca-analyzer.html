@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Analyseur Lexical MOCA - Projet C avancé avec refactoring, optimisation et gestion mémoire rigoureuse">
+    <title>Analyseur Lexical MOCA | Mohamed Amine El Ouechrine</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">MA</a>
+            <button class="nav-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Accueil</a></li>
+                <li><a href="../index.html#projects" class="active">Projets</a></li>
+                <li><a href="../index.html#skills">Compétences</a></li>
+                <li><a href="../index.html#certifications">Certifications</a></li>
+                <li><a href="../about.html">À Propos</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1 class="project-hero-title">Analyseur Lexical MOCA</h1>
+            <p class="project-hero-subtitle">
+                Programme C d'analyse lexicale avec refactoring complet, optimisation algorithmique et 0 leak mémoire
+            </p>
+            <div class="project-hero-image"></div>
+            <div class="project-meta">
+                <div class="meta-item"><span class="meta-label">Durée:</span><span>3 mois</span></div>
+                <div class="meta-item"><span class="meta-label">Organisation:</span><span>Ensimag</span></div>
+                <div class="meta-item"><span class="meta-label">Rôle:</span><span>Développeur C</span></div>
+            </div>
+            <div style="margin-top: var(--spacing-md);">
+                <div class="project-tags" style="justify-content: center;">
+                    <span class="tag">C</span>
+                    <span class="tag">Valgrind</span>
+                    <span class="tag">GDB</span>
+                    <span class="tag">Makefile</span>
+                    <span class="tag">CUnit Testing</span>
+                    <span class="tag">Algorithm Optimization</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Le Défi</h2>
+            <div class="challenge-box">
+                <p>
+                    Transformer une application monolithique C présentant des défauts structurels et des problèmes de
+                    gestion mémoire en un <strong>système robuste et optimisé</strong> respectant les meilleures
+                    pratiques de développement.
+                </p>
+                <p>
+                    Le projet consistait à développer un analyseur lexical générant un dictionnaire d'occurrences de
+                    mots avec tracking précis des positions (ligne, colonne), tout en suivant une approche
+                    d'amélioration continue.
+                </p>
+                <ul>
+                    <li>Refactoriser du code monolithique en architecture modulaire</li>
+                    <li>Créer des bibliothèques statiques et dynamiques réutilisables</li>
+                    <li>Éliminer toutes les fuites mémoire (validation Valgrind)</li>
+                    <li>Optimiser les performances (×3 d'amélioration)</li>
+                    <li>Implémenter une suite de tests complète (95% de couverture)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Mon Rôle</h2>
+            <p><strong>Développeur C principal</strong>, responsable de l'ensemble du cycle de refactoring et
+                d'optimisation :</p>
+            <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                <li><strong>Analyse de code</strong> : audit du code existant, identification des défauts structurels
+                </li>
+                <li><strong>Refactoring</strong> : redesign modulaire, séparation des responsabilités</li>
+                <li><strong>Développement de bibliothèques</strong> : création de libs statiques/dynamiques avec APIs
+                    claires</li>
+                <li><strong>Gestion mémoire</strong> : utilisation de Valgrind et AddressSanitizer pour détecter et
+                    corriger les leaks</li>
+                <li><strong>Tests et validation</strong> : suite de tests CUnit, fuzzing automatisé</li>
+                <li><strong>Optimisation</strong> : profiling avec gprof, amélioration des algorithmes</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Analyse Technique Approfondie</h2>
+
+            <h3 style="color: var(--accent-electric-blue); margin-top: var(--spacing-md);">Fonctionnalités Clés</h3>
+
+            <div style="margin-bottom: var(--spacing-lg);">
+                <h4 style="color: var(--success-terminal-green);">Traitement de Texte Avancé</h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Extraction de mots avec séparateurs personnalisables</li>
+                    <li>Tracking précis des positions (ligne, colonne)</li>
+                    <li>Support multi-format pour fichiers texte</li>
+                    <li>Options de filtrage de mots configurables</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: var(--spacing-lg);">
+                <h4 style="color: var(--success-terminal-green);">Structures de Données & Algorithmes</h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li><strong>Table de hachage custom</strong> : implémentation optimisée pour l'indexation</li>
+                    <li><strong>Arbre binaire équilibré</strong> : stockage efficace avec O(log n) en recherche</li>
+                    <li><strong>Algorithmes de recherche/insertion optimisés</strong></li>
+                    <li><strong>Gestion de listes chaînées</strong> : allocation mémoire efficace</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: var(--spacing-lg);">
+                <h4 style="color: var(--success-terminal-green);">Architecture Logicielle</h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Design modulaire avec séparation claire des responsabilités</li>
+                    <li>Bibliothèques statiques et dynamiques</li>
+                    <li>Interfaces API bien définies</li>
+                    <li>Sérialisation/désérialisation de données</li>
+                </ul>
+            </div>
+
+            <h3 style="color: var(--accent-electric-blue); margin-top: var(--spacing-lg);">Outils & Technologies</h3>
+            <div class="tools-grid">
+                <div class="tool-item">C (ANSI C)</div>
+                <div class="tool-item">GCC/Clang</div>
+                <div class="tool-item">Valgrind</div>
+                <div class="tool-item">AddressSanitizer</div>
+                <div class="tool-item">GDB Debugger</div>
+                <div class="tool-item">Make/Makefile</div>
+                <div class="tool-item">CUnit</div>
+                <div class="tool-item">gprof</div>
+                <div class="tool-item">Git</div>
+                <div class="tool-item">Fuzzing</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Processus de Développement</h2>
+
+            <div style="position: relative; padding-left: 40px;">
+                <div
+                    style="position: absolute; left: 20px; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent-electric-blue) 0%, var(--success-terminal-green) 100%);">
+                </div>
+
+                <!-- Phase 1 -->
+                <div style="margin-bottom: var(--spacing-lg); position: relative;">
+                    <div
+                        style="position: absolute; left: 8px; width: 24px; height: 24px; background: var(--accent-electric-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">
+                        1</div>
+                    <div
+                        style="background: var(--card-bg); padding: var(--spacing-md); border-radius: var(--radius-md); border-left: 4px solid var(--accent-electric-blue); margin-left: var(--spacing-md);">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Évaluation Initiale &
+                            Restructuration</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                            Analyse de l'application monolithique pour identifier les défauts structurels et problèmes
+                            de gestion mémoire.
+                            Redesign de l'architecture en modules distincts avec responsabilités claires.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(88, 166, 255, 0.1); color: var(--accent-electric-blue); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Audit
+                                de Code</span>
+                            <span
+                                style="background: rgba(88, 166, 255, 0.1); color: var(--accent-electric-blue); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Design
+                                Modulaire</span>
+                            <span
+                                style="background: rgba(88, 166, 255, 0.1); color: var(--accent-electric-blue); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Création
+                                Makefile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div style="margin-bottom: var(--spacing-lg); position: relative;">
+                    <div
+                        style="position: absolute; left: 8px; width: 24px; height: 24px; background: var(--success-terminal-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">
+                        2</div>
+                    <div
+                        style="background: var(--card-bg); padding: var(--spacing-md); border-radius: var(--radius-md); border-left: 4px solid var(--success-terminal-green); margin-left: var(--spacing-md);">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Développement de
+                            Bibliothèques & Design API</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                            Création de bibliothèques statiques et dynamiques pour améliorer la réutilisabilité et la
+                            maintenabilité.
+                            Définition d'interfaces claires entre modules et documentation complète des APIs exposées.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(63, 185, 80, 0.1); color: var(--success-terminal-green); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Bibliothèques
+                                Statiques</span>
+                            <span
+                                style="background: rgba(63, 185, 80, 0.1); color: var(--success-terminal-green); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Bibliothèques
+                                Dynamiques</span>
+                            <span
+                                style="background: rgba(63, 185, 80, 0.1); color: var(--success-terminal-green); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Documentation
+                                API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div style="margin-bottom: var(--spacing-lg); position: relative;">
+                    <div
+                        style="position: absolute; left: 8px; width: 24px; height: 24px; background: #9c27b0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">
+                        3</div>
+                    <div
+                        style="background: var(--card-bg); padding: var(--spacing-md); border-radius: var(--radius-md); border-left: 4px solid #9c27b0; margin-left: var(--spacing-md);">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Tests & Assurance
+                            Qualité</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                            Implémentation de tests unitaires complets avec le framework CUnit et tests de fuzzing
+                            automatisés.
+                            Intégration des tests dans le processus de build pour détecter les régressions.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(156, 39, 176, 0.1); color: #9c27b0; padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Tests
+                                Unitaires CUnit</span>
+                            <span
+                                style="background: rgba(156, 39, 176, 0.1); color: #9c27b0; padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Fuzzing
+                                Tests</span>
+                            <span
+                                style="background: rgba(156, 39, 176, 0.1); color: #9c27b0; padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Couverture
+                                95%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div style="margin-bottom: var(--spacing-lg); position: relative;">
+                    <div
+                        style="position: absolute; left: 8px; width: 24px; height: 24px; background: #f44336; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">
+                        4</div>
+                    <div
+                        style="background: var(--card-bg); padding: var(--spacing-md); border-radius: var(--radius-md); border-left: 4px solid #f44336; margin-left: var(--spacing-md);">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Gestion Mémoire &
+                            Débogage</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                            Utilisation de Valgrind et AddressSanitizer pour identifier et corriger les fuites mémoire,
+                            accès invalides,
+                            et pointeurs non initialisés. Implémentation des meilleures pratiques pour une gestion
+                            mémoire robuste.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(244, 67, 54, 0.1); color: #f44336; padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Valgrind</span>
+                            <span
+                                style="background: rgba(244, 67, 54, 0.1); color: #f44336; padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">AddressSanitizer</span>
+                            <span
+                                style="background: rgba(244, 67, 54, 0.1); color: #f44336; padding: 4px 12px; font-size: 0.85rem;">0
+                                Memory Leak</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 5 -->
+                <div style="margin-bottom: var(--spacing-lg); position: relative;">
+                    <div
+                        style="position: absolute; left: 8px; width: 24px; height: 24px; background: #ff9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">
+                        5</div>
+                    <div
+                        style="background: var(--card-bg); padding: var(--spacing-md); border-radius: var(--radius-md); border-left: 4px solid #ff9800; margin-left: var(--spacing-md);">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Optimisation de
+                            Performance</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                            Profiling avec gprof pour identifier les goulots d'étranglement.
+                            Optimisation des algorithmes de hachage et amélioration de la structure d'arbre binaire pour
+                            des performances accrues.
+                        </p>
+                        <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(255, 152, 0, 0.1); color: #ff9800; padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Profiling
+                                gprof</span>
+                            <span
+                                style="background: rgba(255, 152, 0, 0.1); color: #ff9800; padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">Optimisation
+                                Algo</span>
+                            <span
+                                style="background: rgba(255, 152, 0, 0.1); color: #ff9800; padding: 4px 12px; border-radius: 12px; font-size: 0.85rem;">×3
+                                Performance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Résultats Clés</h2>
+            <div class="results-box">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Memory Leaks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Couverture Tests</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">×3</div>
+                        <div class="stat-label">Amélioration Perfs</div>
+                    </div>
+                </div>
+
+                <h3>Réalisations Techniques</h3>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>✅ <strong>Refactoring complet</strong> : transformation d'un code monolithique en architecture
+                        modulaire</li>
+                    <li>✅ <strong>Bibliothèques réutilisables</strong> : création de libs statiques/dynamiques avec APIs
+                        documentées</li>
+                    <li>✅ <strong>Zéro fuite mémoire</strong> : validation Valgrind et AddressSanitizer sur toutes les
+                        fonctionnalités</li>
+                    <li>✅ <strong>Suite de tests complète</strong> : 95% de couverture avec CUnit et fuzzing automatisé
+                    </li>
+                    <li>✅ <strong>Performance optimisée</strong> : amélioration ×3 via profiling gprof et optimisations
+                        algorithmiques</li>
+                    <li>✅ <strong>Build automatisé</strong> : Makefile complexe avec gestion des dépendances</li>
+                </ul>
+
+                <h3>Compétences Acquises</h3>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Maîtrise avancée du C (gestion mémoire manuelle, arithmétique de pointeurs)</li>
+                    <li>Architecture logicielle (modularité, séparation des responsabilités, APIs)</li>
+                    <li>Débogage bas niveau (GDB, Valgrind, AddressSanitizer)</li>
+                    <li>Optimisation de performance (profiling, complexité algorithmique)</li>
+                    <li>Tests rigoureux (CUnit, fuzzing, couverture de code)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <nav class="container">
+        <div class="project-navigation">
+            <a href="nachos.html" class="nav-project">
+                <p class="nav-label">← Projet Précédent</p>
+                <p class="nav-title">NachOS Enhanced Shell</p>
+            </a>
+            <a href="arm-testbench.html" class="nav-project">
+                <p class="nav-label">Projet Suivant →</p>
+                <p class="nav-title">ARM Test Bench</p>
+            </a>
+        </div>
+        <div style="text-align: center; margin-top: var(--spacing-md);">
+            <a href="../index.html#projects" class="btn btn-secondary">← Retour aux projets</a>
+        </div>
+    </nav>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Mohamed Amine El Ouechrine. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

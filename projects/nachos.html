@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NachOS Enhanced Shell - Shell interactif avec 20+ commandes intégrées, protocole FTP inter-machines">
+    <title>NachOS Enhanced Shell | Mohamed Amine El Ouechrine</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">MA</a>
+            <button class="nav-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Accueil</a></li>
+                <li><a href="../index.html#projects" class="active">Projets</a></li>
+                <li><a href="../index.html#skills">Compétences</a></li>
+                <li><a href="../index.html#certifications">Certifications</a></li>
+                <li><a href="../about.html">À Propos</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1 class="project-hero-title">NachOS Enhanced Shell</h1>
+            <p class="project-hero-subtitle">
+                Shell interactif avancé avec 20+ commandes intégrées, protocole FTP, et communication inter-machines
+            </p>
+            <div class="project-hero-image"></div>
+            <div class="project-meta">
+                <div class="meta-item"><span class="meta-label">Durée:</span><span>2 mois</span></div>
+                <div class="meta-item"><span class="meta-label">Organisation:</span><span>Ensimag</span></div>
+                <div class="meta-item"><span class="meta-label">Rôle:</span><span>Développeur Principal</span></div>
+            </div>
+            <div style="margin-top: var(--spacing-md);">
+                <div class="project-tags" style="justify-content: center;">
+                    <span class="tag">C/C++</span>
+                    <span class="tag">Shell Development</span>
+                    <span class="tag">System Calls</span>
+                    <span class="tag">File System</span>
+                    <span class="tag">Network Protocol</span>
+                    <span class="tag">FTP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Le Défi</h2>
+            <div class="challenge-box">
+                <p>
+                    Transformer NachOS, un système d'exploitation pédagogique minimaliste, en un environnement complet
+                    avec un <strong>shell interactif avancé</strong> intégrant gestion de fichiers, communication
+                    réseau, et exécution de commandes natives.
+                </p>
+                <p>
+                    Le défi principal était de concevoir une architecture permettant d'exécuter des commandes
+                    directement depuis le shell (comme <code>ls</code>, <code>cat</code>, <code>mkdir</code>) sans
+                    nécessiter de programmes externes, tout en supportant la communication inter-machines.
+                </p>
+                <ul>
+                    <li>Implémenter 35+ appels système (fichiers, processus, réseau)</li>
+                    <li>Créer un shell avec 20+ commandes intégrées</li>
+                    <li>Développer un protocole FTP pour transfert de fichiers entre machines NachOS</li>
+                    <li>Garantir zéro fuite mémoire (validation Valgrind)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Mon Rôle</h2>
+            <p><strong>Développeur système principal</strong>, responsable de la conception et de l'implémentation
+                complète du shell interactif et de ses fonctionnalités :</p>
+            <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                <li><strong>Shell Enhanced</strong> : parseur de commandes, interpréteur, gestion des arguments</li>
+                <li><strong>Commandes système de fichiers</strong> : ls, cat, mkdir, cd, pwd, write, create</li>
+                <li><strong>Commandes réseau</strong> : send/recv, protocole FTP (get/put/ls/rm)</li>
+                <li><strong>Intégration noyau</strong> : liaison shell ↔ appels système</li>
+                <li><strong>Script d'automation</strong> : launch-shell.sh pour compilation et lancement rapide</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>La Solution</h2>
+            <div class="solution-box">
+                <h3>Shell Interactif Complet</h3>
+                <p>
+                    Développement d'un <strong>shell intégré au noyau</strong> permettant l'exécution de commandes
+                    natives sans programmes externes. Architecture modulaire avec parseur intelligent, gestionnaire de
+                    commandes, et interface unifiée kernel/user.
+                </p>
+
+                <h3>Fonctionnalités Implémentées</h3>
+                <h4 style="color: var(--accent-electric-blue);">Commandes Système Fichiers (7)</h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li><code>ls [path]</code> - Listage de répertoires</li>
+                    <li><code>cat &lt;file&gt;</code> - Affichage de fichiers</li>
+                    <li><code>mkdir &lt;dir&gt;</code> - Création de répertoires</li>
+                    <li><code>cd &lt;path&gt;</code> - Changement de répertoire</li>
+                    <li><code>pwd</code> - Affichage du répertoire courant</li>
+                    <li><code>create &lt;file&gt;</code> - Création de fichiers</li>
+                    <li><code>write &lt;file&gt; &lt;text&gt;</code> - Écriture dans fichiers</li>
+                </ul>
+
+                <h4 style="color: var(--success-terminal-green); margin-top: var(--spacing-md);">Commandes Réseau FTP
+                    (7)</h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li><code>send &lt;to&gt; &lt;msg&gt;</code> - Envoi de messages</li>
+                    <li><code>recv</code> - Réception de messages (bloquant)</li>
+                    <li><code>ftp-get &lt;m&gt; &lt;remote&gt; &lt;local&gt;</code> - Téléchargement de fichiers</li>
+                    <li><code>ftp-put &lt;m&gt; &lt;local&gt; &lt;remote&gt;</code> - Upload de fichiers</li>
+                    <li><code>ftp-ls &lt;m&gt; [path]</code> - Listage distant</li>
+                    <li><code>ftp-mkdir &lt;m&gt; &lt;path&gt;</code> - Création répertoire distant</li>
+                    <li><code>ftp-rm &lt;m&gt; &lt;file&gt;</code> - Suppression distante</li>
+                </ul>
+
+                <h4 style="color: var(--text-primary); margin-top: var(--spacing-md);">Commandes Système (6)</h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li><code>help</code> - Affichage de toutes les commandes</li>
+                    <li><code>exec &lt;program&gt;</code> - Exécution de programmes externes</li>
+                    <li><code>echo &lt;text&gt;</code> - Affichage de texte</li>
+                    <li><code>clear</code> - Effacement de l'écran</li>
+                    <li><code>quit / exit</code> - Fermeture du shell</li>
+                    <li><code>halt</code> - Arrêt du système</li>
+                </ul>
+
+                <h3 style="margin-top: var(--spacing-lg);">Architecture Technique</h3>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li><strong>Parseur de commandes</strong> : support de 10 arguments max, buffer 256 caractères</li>
+                    <li><strong>Protocole FTP custom</strong> : transfert inter-machines NachOS via réseau</li>
+                    <li><strong>3 Flavors NachOS</strong> : step4 (syscalls de base), step5 (filesystem), network
+                        (complet)</li>
+                    <li><strong>Script d'automation</strong> : <code>launch-shell.sh</code> - compilation, formatage,
+                        lancement en une ligne</li>
+                    <li><strong>Tests multi-machines</strong> : support de communication entre 2+ instances NachOS</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Résultats Clés</h2>
+            <div class="results-box">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Commandes Built-in</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Memory Leaks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">NachOS Flavors</div>
+                    </div>
+                </div>
+
+                <h3>Réalisations Techniques</h3>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>✅ <strong>Shell complet</strong> avec 7 commandes fichiers + 7 commandes FTP + 6 commandes
+                        système</li>
+                    <li>✅ <strong>Protocole FTP custom</strong> pour transfert de fichiers entre machines NachOS</li>
+                    <li>✅ <strong>Script d'automation</strong> : compilation, formatage, et lancement en une commande
+                    </li>
+                    <li>✅ <strong>Validation Valgrind</strong> : 0 memory leak sur toutes les commandes</li>
+                    <li>✅ <strong>Architecture multi-flavors</strong> : support step4, step5, et network</li>
+                    <li>✅ <strong>Interface utilisateur intuitive</strong> : commande help, syntaxe Unix-like, messages
+                        clairs</li>
+                </ul>
+
+                <h3>Compétences Acquises</h3>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Développement système bas niveau (C/C++, syscalls, kernel mode)</li>
+                    <li>Programmation réseau (protocoles, communication synchrone/asynchrone)</li>
+                    <li>Systèmes de fichiers (VFS, chemins relatifs/absolus, gestion disque)</li>
+                    <li>Débogage avancé (GDB, Valgrind, analyse de core dumps)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <nav class="container">
+        <div class="project-navigation">
+            <a href="arm-testbench.html" class="nav-project">
+                <p class="nav-label">← Projet Précédent</p>
+                <p class="nav-title">ARM Test Bench</p>
+            </a>
+            <a href="moca-analyzer.html" class="nav-project">
+                <p class="nav-label">Projet Suivant →</p>
+                <p class="nav-title">Analyseur MOCA</p>
+            </a>
+        </div>
+        <div style="text-align: center; margin-top: var(--spacing-md);">
+            <a href="../index.html#projects" class="btn btn-secondary">← Retour aux projets</a>
+        </div>
+    </nav>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Mohamed Amine El Ouechrine. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

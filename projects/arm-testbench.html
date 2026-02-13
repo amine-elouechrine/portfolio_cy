@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Projet ARM Test Bench - Évaluation de la robustesse sécuritaire de plateformes ARM face aux attaques physiques">
+    <meta name="keywords" content="ARM, fault injection, side-channel, TIMA, cybersécurité">
+    <meta name="author" content="Mohamed Amine El Ouechrine">
+
+    <title>ARM Test Bench - TIMA Lab | Mohamed Amine El Ouechrine</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            padding-top: 120px;
+            padding-bottom: var(--spacing-xl);
+            background: radial-gradient(ellipse at top, rgba(88, 166, 255, 0.08) 0%, transparent 70%);
+            text-align: center;
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-width: 900px;
+            height: 400px;
+            margin: var(--spacing-lg) auto;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.15), rgba(63, 185, 80, 0.15));
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-label {
+            color: var(--accent-electric-blue);
+        }
+
+        .project-section {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .project-section h2 {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--border-subtle);
+        }
+
+        .challenge-box,
+        .solution-box,
+        .results-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .challenge-box {
+            border-left: 4px solid #FFA657;
+        }
+
+        .solution-box {
+            border-left: 4px solid var(--accent-electric-blue);
+        }
+
+        .results-box {
+            border-left: 4px solid var(--success-terminal-green);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .tool-item {
+            background: var(--bg-deep-space);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-family: var(--font-mono);
+            color: var(--success-terminal-green);
+            transition: all var(--transition-fast);
+        }
+
+        .tool-item:hover {
+            border-color: var(--success-terminal-green);
+            box-shadow: var(--glow-green);
+        }
+
+        .process-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .process-step {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-left: 2px solid var(--border-subtle);
+        }
+
+        .process-step:last-child {
+            border-left: none;
+        }
+
+        .process-step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--gradient-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: white;
+        }
+
+        .process-step h4 {
+            color: var(--accent-electric-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .stat-card {
+            text-align: center;
+            background: var(--bg-deep-space);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+        }
+
+        .stat-value {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--success-terminal-green);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .project-navigation {
+            display: flex;
+            justify-content: space-between;
+            max-width: 900px;
+            margin: var(--spacing-xl) auto;
+            gap: var(--spacing-md);
+        }
+
+        .nav-project {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-project:hover {
+            border-color: var(--accent-electric-blue);
+            transform: translateY(-5px);
+        }
+
+        .nav-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .nav-title {
+            color: var(--accent-electric-blue);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-hero-image {
+                height: 250px;
+                font-size: 3rem;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+
+            .project-navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">MA</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Accueil</a></li>
+                <li><a href="../index.html#projects" class="active">Projets</a></li>
+                <li><a href="../index.html#skills">Compétences</a></li>
+                <li><a href="../index.html#certifications">Certifications</a></li>
+                <li><a href="../about.html">À Propos</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <h1>Banc de Test ARM (TIMA Lab)</h1>
+            <p
+                style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: var(--spacing-sm) auto;">
+                Évaluation de la robustesse sécuritaire de plateformes ARM face aux attaques physiques
+            </p>
+
+            <div class="project-hero-image">
+                🔬
+            </div>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Durée:</span>
+                    <span>6 mois (2025 - Présent)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Organisation:</span>
+                    <span>Laboratoire TIMA - Grenoble</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Rôle:</span>
+                    <span>Stagiaire R&D</span>
+                </div>
+            </div>
+
+            <div style="margin-top: var(--spacing-md);">
+                <div class="project-tags" style="justify-content: center;">
+                    <span class="tag">ARM</span>
+                    <span class="tag">Fault Injection</span>
+                    <span class="tag">Side-Channel Analysis</span>
+                    <span class="tag">Oscilloscope</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">C</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Le Défi</h2>
+            <div class="challenge-box">
+                <p>
+                    Les systèmes embarqués critiques (automobile, défense, IoT) basés sur ARM sont vulnérables aux
+                    <strong>attaques physiques</strong> qui peuvent contourner les protections logicielles.
+                    L'injection de fautes et l'analyse de canaux auxiliaires permettent d'extraire des clés
+                    cryptographiques
+                    ou de modifier le comportement du système.
+                </p>
+                <p>
+                    <strong>Problématique :</strong> Comment évaluer rigoureusement la résistance d'une plateforme ARM
+                    face à ces attaques avancées ?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Role -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Mon Rôle</h2>
+            <p>
+                En tant que stagiaire R&D au <strong>laboratoire TIMA</strong>, j'ai été responsable de la conception
+                et de la mise en œuvre d'un banc de test complet pour évaluer la sécurité des plateformes ARM.
+            </p>
+            <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">
+                <strong>Travail en autonomie</strong> avec supervision académique.
+                Collaboration étroite avec les chercheurs du laboratoire pour définir les protocoles d'attaque.
+            </p>
+        </div>
+    </section>
+
+    <!-- Technical Deep-Dive -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Analyse Technique Approfondie</h2>
+
+            <h3 style="color: var(--accent-electric-blue); margin-top: var(--spacing-md);">Outils Utilisés</h3>
+            <div class="tools-grid">
+                <div class="tool-item">Oscilloscope</div>
+                <div class="tool-item">ARM Platform</div>
+                <div class="tool-item">Python</div>
+                <div class="tool-item">C/C++</div>
+                <div class="tool-item">GDB</div>
+                <div class="tool-item">JTAG Debugger</div>
+            </div>
+
+            <h3 style="color: var(--accent-electric-blue); margin-top: var(--spacing-lg);">🔄 Processus & Méthodologie
+            </h3>
+            <ul class="process-steps">
+                <li class="process-step">
+                    <h4>Mise en place du banc de test</h4>
+                    <p>
+                        Configuration matérielle : oscilloscope, générateur de signaux, plateforme ARM cible,
+                        et instrumentation pour capturer les signaux électriques.
+                    </p>
+                </li>
+                <li class="process-step">
+                    <h4>Analyse des canaux auxiliaires</h4>
+                    <p>
+                        Capture et analyse de la consommation électrique du système pendant l'exécution
+                        d'opérations cryptographiques (AES, RSA) pour détecter des fuites d'information.
+                    </p>
+                </li>
+                <li class="process-step">
+                    <h4>Injection de fautes</h4>
+                    <p>
+                        Perturbation contrôlée du système (voltage glitching, clock glitching) pour provoquer
+                        des erreurs exploitables et analyser la robustesse du code.
+                    </p>
+                </li>
+                <li class="process-step">
+                    <h4>Évaluation de la robustesse</h4>
+                    <p>
+                        Documentation des vulnérabilités identifiées et proposition de contre-mesures
+                        matérielles et logicielles.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>La Solution</h2>
+            <div class="solution-box">
+                <p>
+                    Conception d'un <strong>banc de test automatisé</strong> capable de :
+                </p>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Exécuter des campagnes d'attaques reproductibles sur différentes plateformes ARM</li>
+                    <li>Capturer et analyser des milliers de traces électriques avec haute précision</li>
+                    <li>Identifier les points faibles dans l'implémentation matérielle et logicielle</li>
+                    <li>Générer des rapports détaillés sur la robustesse sécuritaire</li>
+                </ul>
+                <p style="margin-top: var(--spacing-sm);">
+                    <strong>Implémentation :</strong> Développement en Python pour l'orchestration et le traitement
+                    de données, avec du C pour les firmware de test sur la cible ARM.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Results -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Résultats Clés</h2>
+            <div class="results-box">
+                <div class="results-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">1000+</div>
+                        <div class="stat-label">Traces analysées</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Vulnérabilités identifiées</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">98%</div>
+                        <div class="stat-label">Taux de succès des attaques</div>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--success-terminal-green); margin-top: var(--spacing-md);">
+                    Impact & Apprentissages
+                </h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Compréhension approfondie des mécanismes d'attaques physiques</li>
+                    <li>Expertise en instrumentation matérielle et analyse de signaux</li>
+                    <li>Maîtrise des techniques de sécurisation au niveau matériel</li>
+                    <li>Contribution à la recherche en sécurité des systèmes embarqués</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <nav class="container">
+        <div class="project-navigation">
+            <a href="moca-analyzer.html" class="nav-project">
+                <p class="nav-label">← Projet Précédent</p>
+                <p class="nav-title">Analyseur MOCA</p>
+            </a>
+            <a href="nachos.html" class="nav-project">
+                <p class="nav-label">Projet Suivant →</p>
+                <p class="nav-title">Extension NachOS</p>
+            </a>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--spacing-md);">
+            <a href="../index.html#projects" class="btn btn-secondary">← Retour aux projets</a>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Mohamed Amine El Ouechrine. Tous droits réservés.</p>
+            <p>Ingénieur Cybersécurité & Systèmes Embarqués</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

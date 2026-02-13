@@ -1,0 +1,13 @@
+# Robots.txt file for Mohamed Amine El Ouechrine Portfolio
+# https://your-domain.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Disallow access to certain directories
+Disallow: /assets/
+Disallow: /.git/
+Disallow: /.gemini/

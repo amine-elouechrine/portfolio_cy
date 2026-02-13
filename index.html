@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Mohamed Amine El Ouechrine - Ingénieur Cybersécurité & Systèmes Embarqués spécialisé en sécurité bas niveau, plateformes ARM, et développement système.">
+    <meta name="keywords"
+        content="cybersécurité, systèmes embarqués, ARM security, injection de fautes, Ensimag, TIMA, C, C++, low-level security">
+    <meta name="author" content="Mohamed Amine El Ouechrine">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Mohamed Amine El Ouechrine - Cybersecurity Engineer">
+    <meta property="og:description"
+        content="Futur ingénieur Ensimag spécialisé dans la sécurité des systèmes embarqués et le développement bas niveau">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com">
+    <meta property="og:image" content="https://your-domain.com/assets/images/og-preview.jpg">
+
+    <!-- Theme Color (for mobile browsers) -->
+    <meta name="theme-color" content="#0D1117">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-domain.com/">
+
+    <title>Mohamed Amine El Ouechrine | Cybersecurity & Embedded Systems Engineer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="alternate icon" href="assets/images/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+</head>
+
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">MA</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Accueil</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">Bonjour, je suis</p>
+            <h1 class="hero-title">Mohamed Amine El Ouechrine</h1>
+            <p class="hero-subtitle">Ingénieur Cybersécurité & Systèmes Embarqués</p>
+            <p class="hero-tagline">"Bridging the Gap Between Hardware and Software Security"</p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                <a href="cv/Mohamed_Amine_CV.pdf" class="btn btn-secondary" download>Télécharger mon CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="container">
+        <a id="main-content"></a>
+        <div class="section-header">
+            <h2 class="section-title">Projets Phares</h2>
+            <p class="section-description">
+                Spécialiste du développement bas niveau et de l'analyse offensive,
+                je conçois et sécurise des systèmes là où le code rencontre le matériel.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1: NachOS Enhanced Shell -->
+            <article class="project-card fade-in">
+                <div class="project-image" role="img"
+                    aria-label="NachOS Enhanced Shell - Interactive shell with 20+ built-in commands and FTP protocol">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">NachOS Enhanced Shell</h3>
+                    <p class="project-description">
+                        Shell interactif avancé avec 20+ commandes intégrées (système fichiers, réseau FTP, système),
+                        protocole de transfert inter-machines, et script d'automation.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">C/C++</span>
+                        <span class="tag">Shell Development</span>
+                        <span class="tag">FTP Protocol</span>
+                        <span class="tag">Network</span>
+                    </div>
+                    <a href="projects/nachos.html" class="project-link">En savoir plus</a>
+                </div>
+            </article>
+
+            <!-- Project 2: ARM Test Bench (TIMA Lab) -->
+            <article class="project-card fade-in">
+                <div class="project-image" role="img"
+                    aria-label="ARM Test Bench - Security evaluation setup with oscilloscope and ARM platform"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Banc de Test ARM (TIMA Lab)</h3>
+                    <p class="project-description">
+                        Évaluation de la robustesse sécuritaire de plateformes ARM face aux attaques physiques
+                        (injection de fautes, canaux auxiliaires). Travail de R&D au laboratoire TIMA.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">ARM</span>
+                        <span class="tag">Fault Injection</span>
+                        <span class="tag">Side-Channels</span>
+                        <span class="tag">Oscilloscope</span>
+                    </div>
+                    <a href="projects/arm-testbench.html" class="project-link">En savoir plus</a>
+                </div>
+            </article>
+
+            <!-- Project 3: MOCA Analyzer -->
+            <article class="project-card fade-in">
+                <div class="project-image" role="img"
+                    aria-label="MOCA Lexical Analyzer - C refactoring with 0 memory leaks and 95% test coverage"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Analyseur Lexical MOCA</h3>
+                    <p class="project-description">
+                        Refactoring complet d'un analyseur lexical en C : architecture modulaire, 0 memory leak,
+                        95% de couverture de tests, et amélioration de performance ×3.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">C</span>
+                        <span class="tag">Valgrind</span>
+                        <span class="tag">Testing</span>
+                        <span class="tag">Optimization</span>
+                    </div>
+                    <a href="projects/moca-analyzer.html" class="project-link">En savoir plus</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container-wide">
+        <div class="section-header">
+            <h2 class="section-title">Compétences Techniques</h2>
+            <p class="section-description">
+                Expertise en développement système, cybersécurité offensive, et analyse de sécurité matérielle
+            </p>
+        </div>
+
+        <div class="skills-filter">
+            <button class="filter-btn active" data-filter="all">Tout</button>
+            <button class="filter-btn" data-filter="system">Système</button>
+            <button class="filter-btn" data-filter="security">Sécurité</button>
+            <button class="filter-btn" data-filter="tools">Outils</button>
+        </div>
+
+        <div class="skills-grid">
+            <!-- System Development -->
+            <div class="skill-category fade-in" data-category="system">
+                <h3>Développement Système</h3>
+                <div class="skill-list">
+                    <span class="skill-item">C</span>
+                    <span class="skill-item">C++</span>
+                    <span class="skill-item">ARM Assembly</span>
+                    <span class="skill-item">Linux</span>
+                    <span class="skill-item">POSIX</span>
+                    <span class="skill-item">Multithreading</span>
+                    <span class="skill-item">IPC</span>
+                    <span class="skill-item">Memory Management</span>
+                </div>
+            </div>
+
+            <!-- Cybersecurity -->
+            <div class="skill-category fade-in" data-category="security">
+                <h3>Cybersécurité</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Fault Injection</span>
+                    <span class="skill-item">Side-Channel Analysis</span>
+                    <span class="skill-item">Reverse Engineering</span>
+                    <span class="skill-item">Secure Coding</span>
+                    <span class="skill-item">Cryptography</span>
+                    <span class="skill-item">Vulnerability Analysis</span>
+                    <span class="skill-item">ANSSI SecNum</span>
+                </div>
+            </div>
+
+            <!-- Tools & Platforms -->
+            <div class="skill-category fade-in" data-category="tools">
+                <h3>Outils & Plateformes</h3>
+                <div class="skill-list">
+                    <span class="skill-item">GDB</span>
+                    <span class="skill-item">Valgrind</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">Oscilloscope</span>
+                    <span class="skill-item">ARM Platform</span>
+                    <span class="skill-item">Make/CMake</span>
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Python</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Certifications</h2>
+            <p class="section-description">
+                Formations spécialisées validées par des organismes reconnus
+            </p>
+        </div>
+
+        <div class="certifications-grid">
+            <div class="certification-card fade-in">
+                <div class="certification-badge">
+                    🔒
+                </div>
+                <h3 class="certification-name">SecNumAcadémie</h3>
+                <p class="certification-issuer">ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information)</p>
+            </div>
+
+            <!-- Add more certifications as needed -->
+            <div class="certification-card fade-in">
+                <div class="certification-badge">
+
+                </div>
+                <h3 class="certification-name">Master of Computer Science</h3>
+                <p class="certification-issuer">Grenoble INP - Ensimag</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-description">
+                Recherche d'une alternance de 12 mois à partir de septembre 2026
+            </p>
+        </div>
+
+        <div class="contact-links"
+            style="display: flex; justify-content: center; gap: var(--spacing-lg); flex-wrap: wrap; margin-top: var(--spacing-lg);">
+            <a href="mailto:elouechrinemohamed@gmail.com" class="contact-link">
+                📧 elouechrinemohamed@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/mohamed-amine-el-ouechrine-9530461bb/" target="_blank" rel="noopener"
+                class="contact-link">
+                💼 LinkedIn
+            </a>
+            <a href="https://github.com/amine-elouechrine" target="_blank" rel="noopener" class="contact-link">
+                🔗 GitHub
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Mohamed Amine El Ouechrine. Tous droits réservés.</p>
+            <p>Ingénieur Cybersécurité & Systèmes Embarqués</p>
+        </div>
+    </footer>
+
+    <!-- Structured Data (Schema.org) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mohamed Amine El Ouechrine",
+      "jobTitle": "Cybersecurity & Embedded Systems Engineer",
+      "description": "Futur ingénieur Ensimag spécialisé en sécurité des systèmes embarqués et développement bas niveau",
+      "url": "https://your-domain.com",
+      "image": "https://your-domain.com/assets/images/profile.webp",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Grenoble INP - Ensimag"
+      },
+      "knowsAbout": [
+        "Cybersecurity",
+        "Embedded Systems",
+        "ARM Architecture",
+        "C Programming",
+        "C++ Programming",
+        "Fault Injection",
+        "Side-Channel Analysis",
+        "Operating Systems"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/mohamed-amine-el-ouechrine-9530461bb/",
+        "https://github.com/amine-elouechrine"
+      ]
+    }
+    </script>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

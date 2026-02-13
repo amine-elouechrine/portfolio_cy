@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="À propos de Mohamed Amine El Ouechrine - Parcours académique, expérience professionnelle, et compétences en cybersécurité et systèmes embarqués.">
+    <meta name="keywords" content="Ensimag, TIMA, cybersécurité, ARM, systèmes embarqués">
+    <meta name="author" content="Mohamed Amine El Ouechrine">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="À Propos | Mohamed Amine El Ouechrine">
+    <meta property="og:description"
+        content="Parcours académique et professionnel en cybersécurité et systèmes embarqués">
+    <meta property="og:url" content="https://your-domain.com/about.html">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0D1117">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-domain.com/about.html">
+
+    <title>À Propos | Mohamed Amine El Ouechrine</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="alternate icon" href="assets/images/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+
+    <style>
+        /* About Page Specific Styles */
+        .about-hero {
+            padding-top: 120px;
+            padding-bottom: var(--spacing-xl);
+            background: radial-gradient(ellipse at top, rgba(88, 166, 255, 0.05) 0%, transparent 70%);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .about-image-container {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: var(--radius-lg);
+            border: 3px solid var(--accent-electric-blue);
+            box-shadow: var(--glow-blue);
+        }
+
+        .about-text h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .highlight {
+            color: var(--accent-electric-blue);
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-blue);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+            padding-left: var(--spacing-md);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-electric-blue);
+            border: 3px solid var(--bg-deep-space);
+            box-shadow: 0 0 0 2px var(--accent-electric-blue);
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            color: var(--success-terminal-green);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-subtitle {
+            color: var(--accent-electric-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .languages-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .language-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--bg-deep-space);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+        }
+
+        .language-name {
+            font-family: var(--font-mono);
+            color: var(--accent-electric-blue);
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .language-level {
+            color: var(--text-secondary);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image {
+                margin: 0 auto var(--spacing-md);
+            }
+
+            .timeline {
+                padding-left: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">MA</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Accueil</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#certifications">Certifications</a></li>
+                <li><a href="about.html" class="active">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">À Propos de Moi</h1>
+                <p class="section-description">
+                    Futur ingénieur diplômé de l'Ensimag, spécialisé en cybersécurité et systèmes embarqués
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="container">
+        <div class="about-content">
+            <!-- About Grid -->
+            <div class="about-grid fade-in">
+                <div class="about-image-container">
+                    <!-- Replace with your actual profile photo -->
+                    <div class="about-image"
+                        style="background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(63, 185, 80, 0.2)); height: 300px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <h2>Qui suis-je ?</h2>
+                    <p>
+                        Futur ingénieur diplômé de l'<span class="highlight">Ensimag</span>, je me spécialise dans la
+                        sécurité des systèmes embarqués et le développement bas niveau.
+                    </p>
+                    <p>
+                        Mon parcours combine une rigueur académique en informatique (Master of Computer Science) et une
+                        expérience
+                        concrète en <span class="highlight">R&D au laboratoire TIMA</span>, où j'évalue la robustesse
+                        des
+                        plateformes ARM face aux attaques physiques.
+                    </p>
+                    <p>
+                        Maîtrisant le <span class="highlight">C, le C++ et l'assembleur</span>, je m'attache à
+                        construire
+                        des logiciels performants et sécurisés dès la conception.
+                    </p>
+                    <p>
+                        Je recherche une <span class="highlight">alternance de 12 mois à partir de septembre 2026</span>
+                        pour relever des défis complexes en cybersécurité industrielle.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Education & Experience Timeline -->
+            <div class="fade-in">
+                <h2 class="section-title">Parcours</h2>
+
+                <div class="timeline">
+                    <!-- Current Position -->
+                    <div class="timeline-item">
+                        <p class="timeline-date">2025 - Présent</p>
+                        <h3 class="timeline-title">Stagiaire Recherche & Développement</h3>
+                        <p class="timeline-subtitle">Laboratoire TIMA - Grenoble</p>
+                        <p class="timeline-description">
+                            Évaluation de la robustesse sécuritaire de plateformes ARM. Mise en place de bancs de test
+                            pour injection de fautes et analyse de canaux auxiliaires. Expérimentation sur matériel réel
+                            avec oscilloscope et équipement spécialisé.
+                        </p>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="timeline-item">
+                        <p class="timeline-date">2023 - 2026</p>
+                        <h3 class="timeline-title">Ingénieur - Master of Computer Science</h3>
+                        <p class="timeline-subtitle">UGA / Grenoble INP - Ensimag</p>
+                        <p class="timeline-description">
+                            Formation d'excellence en informatique avec spécialisation en cybersécurité et systèmes
+                            embarqués.
+                            Projets majeurs : Extension NachOS (35+ syscalls), Analyseur MOCA, développement bas niveau.
+                        </p>
+                    </div>
+
+                    <!-- Certification -->
+                    <div class="timeline-item">
+                        <p class="timeline-date">2024</p>
+                        <h3 class="timeline-title">Certification SecNumAcadémie</h3>
+                        <p class="timeline-subtitle">ANSSI</p>
+                        <p class="timeline-description">
+                            Formation spécialisée en sécurité des systèmes d'information délivrée par l'Agence Nationale
+                            de la Sécurité des Systèmes d'Information.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages Section -->
+            <div class="languages-section fade-in">
+                <h2 class="section-title">Langues</h2>
+                <div class="language-grid">
+                    <div class="language-item">
+                        <p class="language-name">🇮🇹 Italien</p>
+                        <p class="language-level">Langue maternelle</p>
+                    </div>
+                    <div class="language-item">
+                        <p class="language-name">🇫🇷 Français</p>
+                        <p class="language-level">Courant</p>
+                    </div>
+                    <div class="language-item">
+                        <p class="language-name">🇬🇧 Anglais</p>
+                        <p class="language-level">B2 (Professionnel)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section fade-in">
+                <h2>Intéressé par mon profil ?</h2>
+                <p style="margin-bottom: var(--spacing-md); color: var(--text-secondary);">
+                    Je suis disponible pour une alternance de 12 mois à partir de septembre 2026
+                </p>
+                <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;">
+                    <a href="cv/Mohamed_Amine_CV.pdf" class="btn btn-primary" download>
+                        Télécharger mon CV
+                    </a>
+                    <a href="index.html#contact" class="btn btn-secondary">
+                        Me Contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Mohamed Amine El Ouechrine. Tous droits réservés.</p>
+            <p>Ingénieur Cybersécurité & Systèmes Embarqués</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
