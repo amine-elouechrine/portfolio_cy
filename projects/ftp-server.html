@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="FTP Server with Load Balancer - Distributed file transfer system with resume capability and round-robin load balancing">
+    <meta name="keywords" content="FTP, Load Balancer, Distributed Systems, C, Network Programming">
+    <meta name="author" content="Mohamed Amine El Ouechrine">
+
+    <title>FTP Server with Load Balancer | Mohamed Amine El Ouechrine</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            padding-top: 120px;
+            padding-bottom: var(--spacing-xl);
+            background: radial-gradient(ellipse at top, rgba(88, 166, 255, 0.08) 0%, transparent 70%);
+            text-align: center;
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-width: 900px;
+            height: 400px;
+            margin: var(--spacing-lg) auto;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.15), rgba(63, 185, 80, 0.15));
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-label {
+            color: var(--accent-electric-blue);
+        }
+
+        .project-section {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .project-section h2 {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--border-subtle);
+        }
+
+        .challenge-box,
+        .solution-box,
+        .results-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .challenge-box {
+            border-left: 4px solid #FFA657;
+        }
+
+        .solution-box {
+            border-left: 4px solid var(--accent-electric-blue);
+        }
+
+        .results-box {
+            border-left: 4px solid var(--success-terminal-green);
+        }
+
+        .phase-container {
+            background: var(--bg-deep-space);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .phase-number {
+            background: var(--gradient-blue);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .phase-title {
+            color: var(--accent-electric-blue);
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .tool-item {
+            background: var(--bg-deep-space);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-family: var(--font-mono);
+            color: var(--success-terminal-green);
+            transition: all var(--transition-fast);
+        }
+
+        .tool-item:hover {
+            border-color: var(--success-terminal-green);
+            box-shadow: var(--glow-green);
+        }
+
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .stat-card {
+            text-align: center;
+            background: var(--bg-deep-space);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+        }
+
+        .stat-value {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--success-terminal-green);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .project-navigation {
+            display: flex;
+            justify-content: space-between;
+            max-width: 900px;
+            margin: var(--spacing-xl) auto;
+            gap: var(--spacing-md);
+        }
+
+        .nav-project {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-project:hover {
+            border-color: var(--accent-electric-blue);
+            transform: translateY(-5px);
+        }
+
+        .nav-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .nav-title {
+            color: var(--accent-electric-blue);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-hero-image {
+                height: 250px;
+                font-size: 3rem;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+
+            .project-navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">MA</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Accueil</a></li>
+                <li><a href="../index.html#projects" class="active">Projets</a></li>
+                <li><a href="../index.html#skills">Compétences</a></li>
+                <li><a href="../index.html#certifications">Certifications</a></li>
+                <li><a href="../about.html">À Propos</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <h1>FTP Server with Load Balancer</h1>
+            <p
+                style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: var(--spacing-sm) auto;">
+                Distributed file transfer system with resume capability and round-robin load balancing
+            </p>
+
+            <div class="project-hero-image">
+            </div>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Duration:</span>
+                    <span>4 months</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Organization:</span>
+                    <span>Ensimag</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role:</span>
+                    <span>Lead Developer</span>
+                </div>
+            </div>
+
+            <div style="margin-top: var(--spacing-md);">
+                <div class="project-tags" style="justify-content: center;">
+                    <span class="tag">C</span>
+                    <span class="tag">Network Programming</span>
+                    <span class="tag">Load Balancing</span>
+                    <span class="tag">Distributed Systems</span>
+                    <span class="tag">FTP Protocol</span>
+                    <span class="tag">Round-Robin</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>The Challenge</h2>
+            <div class="challenge-box">
+                <p>
+                    Build a production-ready <strong>FTP server</strong> that handles file transfers reliably
+                    and efficiently. The system must support multiple simultaneous clients, resume interrupted
+                    transfers, and distribute load across multiple server instances.
+                </p>
+                <p>
+                    <strong>Key Requirements:</strong>
+                </p>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Handle large files (>1GB) without memory saturation</li>
+                    <li>Resume downloads after client crashes without re-downloading</li>
+                    <li>Support multiple concurrent connections</li>
+                    <li>Implement load balancing for scalability</li>
+                    <li>Ensure cross-architecture compatibility (big-endian/little-endian)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Role -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>My Role</h2>
+            <p>
+                As <strong>Lead Developer</strong>, I designed and implemented the complete FTP system
+                through three progressive phases, from basic client-server to a full distributed architecture
+                with load balancing.
+            </p>
+            <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">
+                <strong>Responsibilities:</strong> Network protocol design, robust I/O handling, load balancer
+                implementation, performance testing, and documentation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Technical Solution -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Technical Solution</h2>
+
+            <h3 style="color: var(--accent-electric-blue); margin-top: var(--spacing-md);">Architecture Evolution</h3>
+
+            <!-- Phase 1 -->
+            <div class="phase-container">
+                <div class="phase-header">
+                    <div class="phase-number">1</div>
+                    <h3 class="phase-title">Basic FTP Server</h3>
+                </div>
+                <p style="color: var(--text-secondary);">
+                    <strong>Goal:</strong> Establish fundamental client-server communication
+                </p>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Client sends GET request for a file</li>
+                    <li>Server listens on port 2121, checks file existence, and sends it back</li>
+                    <li>Separate directories for client/server file storage</li>
+                    <li>Proper connection termination and child process cleanup</li>
+                </ul>
+                <p style="margin-top: var(--spacing-sm); color: var(--text-secondary);">
+                    <strong>Limitation:</strong> Single file per connection
+                </p>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-container">
+                <div class="phase-header">
+                    <div class="phase-number">2</div>
+                    <h3 class="phase-title">Advanced Features</h3>
+                </div>
+                <p style="color: var(--text-secondary);">
+                    <strong>Improvements:</strong> Production-ready features
+                </p>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li><strong>Multi-file support:</strong> Request multiple files per connection</li>
+                    <li><strong>Resume capability:</strong> Automatic transfer resumption after client crash</li>
+                    <li><strong>Robust I/O:</strong> <code>rio_readn()/rio_writen()</code> prevent partial reads</li>
+                    <li><strong>Binary file support:</strong> Handle PDF, MP3, videos, large files</li>
+                    <li><strong>Offset tracking:</strong> Save download progress to resume from failure point</li>
+                </ul>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-container">
+                <div class="phase-header">
+                    <div class="phase-number">3</div>
+                    <h3 class="phase-title">Load Balancer Architecture</h3>
+                </div>
+                <p style="color: var(--text-secondary);">
+                    <strong>Distributed system:</strong> Master/slave architecture
+                </p>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li><strong>Master server:</strong> Load balancer using round-robin policy</li>
+                    <li><strong>Slave servers:</strong> Fixed number (MAX_SLAVE) handling actual transfers</li>
+                    <li><strong>Client routing:</strong> Master directs clients to least-loaded slave</li>
+                    <li><strong>State tracking:</strong> Master maintains slave info (IP, port, status)</li>
+                    <li><strong>Algorithm:</strong> <code>current_fd = (current_fd + 1) % MAX_SLAVE</code></li>
+                </ul>
+            </div>
+
+            <h3 style="color: var(--accent-electric-blue); margin-top: var(--spacing-lg);">Technical Decisions</h3>
+            <div class="solution-box">
+                <p><strong>Network byte order:</strong></p>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Systematic use of <code>ntohl()/htonl()</code> for cross-architecture compatibility</li>
+                    <li>Ensures correct packet header and file size transmission</li>
+                </ul>
+                <p style="margin-top: var(--spacing-sm);"><strong>Robust I/O handling:</strong></p>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Adopted <code>rio_readn()/rio_writen()</code> over standard <code>read()/write()</code></li>
+                    <li>Prevents partial reads during block transfers</li>
+                    <li>Simplifies handling of multiple file requests per connection</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Results -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Key Results</h2>
+            <div class="results-box">
+                <div class="results-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">5+</div>
+                        <div class="stat-label">Concurrent Connections</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1GB+</div>
+                        <div class="stat-label">Large Files Supported</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Resume Success Rate</div>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--success-terminal-green); margin-top: var(--spacing-md);">
+                    Validated Features
+                </h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li><strong>Multi-format transfer:</strong> Successfully tested .txt, .pdf, .mp3, videos</li>
+                    <li><strong>Crash recovery:</strong> Downloads resume from exact failure point without data loss
+                    </li>
+                    <li><strong>Performance:</strong> Efficient block-based transfer, no memory saturation on large
+                        files</li>
+                    <li><strong>Concurrent clients:</strong> NB_PROC clients handled simultaneously without errors</li>
+                    <li><strong>Load distribution:</strong> Round-robin policy verified via server logs</li>
+                </ul>
+
+                <h4 style="color: var(--success-terminal-green); margin-top: var(--spacing-md);">
+                    Skills Developed
+                </h4>
+                <ul style="margin-left: var(--spacing-md); color: var(--text-secondary);">
+                    <li>Network programming in C (sockets, TCP/IP, protocols)</li>
+                    <li>Distributed systems architecture (load balancing, master/slave)</li>
+                    <li>Robust error handling and recovery mechanisms</li>
+                    <li>Performance optimization for large file transfers</li>
+                    <li>Cross-platform compatibility (endianness, portability)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <nav class="container">
+        <div class="project-navigation">
+            <a href="arm-testbench.html" class="nav-project">
+                <p class="nav-label">← Previous Project</p>
+                <p class="nav-title">ARM Test Bench</p>
+            </a>
+            <a href="nachos.html" class="nav-project">
+                <p class="nav-label">Next Project →</p>
+                <p class="nav-title">NachOS Enhanced Shell</p>
+            </a>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--spacing-md);">
+            <a href="../index.html#projects" class="btn btn-secondary">← Back to Projects</a>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Mohamed Amine El Ouechrine. All rights reserved.</p>
+            <p>Cybersecurity & Embedded Systems Engineer</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
