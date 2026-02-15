@@ -55,6 +55,59 @@
         </div>
     </section>
 
+<!-- Terminal Interactif -->
+    <section class="container">
+        <div class="project-section fade-in">
+            <h2>Essayez le Shell Interactif</h2>
+            <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md);">
+                Testez directement les commandes du shell NachOS dans ce terminal simulé.
+            </p>
+
+            <div class="terminal-wrapper">
+                <div class="terminal-container">
+                    <!-- En-tête du terminal -->
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="terminal-title">NachOS Enhanced Shell - Interactive Demo</div>
+                        <div class="terminal-controls">
+                            <button class="btn-help" title="Aide">?</button>
+                            <button class="btn-reset" title="Réinitialiser">↻</button>
+                        </div>
+                    </div>
+
+                    <!-- Corps du terminal -->
+                    <div class="terminal-body" id="terminal-output">
+                        <!-- Le contenu sera inséré par JavaScript -->
+                    </div>
+
+                    <!-- Ligne de saisie -->
+                    <div class="terminal-input-line">
+                        <span class="prompt">nachos&gt;</span>
+                        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
+                    </div>
+                </div>
+
+                <!-- Aide rapide -->
+                <div class="terminal-hints">
+                    <p><strong>💡 Commandes à essayer :</strong></p>
+                    <code>help</code> •
+                    <code>ls</code> •
+                    <code>mkdir test</code> •
+                    <code>cd test</code> •
+                    <code>cat README.md</code> •
+                    <code>pwd</code> •
+                    <code>clear</code> •
+                    <code>about</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section class="container">
         <div class="project-section fade-in">
             <h2>Le Défi</h2>
@@ -195,6 +248,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <nav class="container">
         <div class="project-navigation">
