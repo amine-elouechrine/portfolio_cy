@@ -87,12 +87,8 @@ class NachOSTerminal {
     }
 
     printWelcome() {
-        this.printLine('╔════════════════════════════════════════════════╗', 'info');
-        this.printLine('║   NachOS Enhanced Shell - Interactive Demo    ║', 'info');
-        this.printLine('║   Développé en C/C++ par Mohamed Amine        ║', 'info');
-        this.printLine('╚════════════════════════════════════════════════╝', 'info');
-        this.printLine('');
-        this.printLine('Bienvenue ! Tapez "help" pour voir les commandes disponibles.', 'output');
+        this.printLine('NachOS Enhanced Shell - Interactive Demo', 'info');
+        this.printLine('Type "help" to see available commands', 'output');
         this.printLine('');
     }
 
@@ -163,41 +159,41 @@ class NachOSTerminal {
     // === COMMANDES ===
 
     cmdHelp() {
-        this.printLine('═══════════════ Commandes disponibles ═══════════════', 'success');
+        this.printLine('Available commands:', 'success');
         this.printLine('');
-        this.printLine('Navigation & Fichiers:', 'info');
-        this.printLine('  ls [path]         - Liste le contenu du répertoire', 'output');
-        this.printLine('  cd <dir>          - Change de répertoire (cd / pour racine)', 'output');
-        this.printLine('  pwd               - Affiche le répertoire courant', 'output');
-        this.printLine('  cat <file>        - Affiche le contenu d\'un fichier', 'output');
+        this.printLine('Navigation & Files:', 'info');
+        this.printLine('  ls [path]         - List directory contents', 'output');
+        this.printLine('  cd <dir>          - Change directory', 'output');
+        this.printLine('  pwd               - Print working directory', 'output');
+        this.printLine('  cat <file>        - Display file content', 'output');
         this.printLine('');
-        this.printLine('Gestion de fichiers:', 'info');
-        this.printLine('  mkdir <dir>       - Crée un répertoire', 'output');
-        this.printLine('  create <file>     - Crée un fichier vide', 'output');
-        this.printLine('  write <file> <txt> - Écrit dans un fichier', 'output');
-        this.printLine('  rm <file>         - Supprime un fichier', 'output');
+        this.printLine('File management:', 'info');
+        this.printLine('  mkdir <dir>       - Create directory', 'output');
+        this.printLine('  create <file>     - Create empty file', 'output');
+        this.printLine('  write <file> <txt> - Write to file', 'output');
+        this.printLine('  rm <file>         - Remove file', 'output');
         this.printLine('');
-        this.printLine('Système:', 'info');
-        this.printLine('  clear             - Efface l\'écran', 'output');
-        this.printLine('  whoami            - Affiche l\'utilisateur', 'output');
-        this.printLine('  date              - Affiche la date', 'output');
-        this.printLine('  about             - À propos de ce projet', 'output');
-        this.printLine('  help              - Affiche cette aide', 'output');
+        this.printLine('System:', 'info');
+        this.printLine('  clear             - Clear screen', 'output');
+        this.printLine('  whoami            - Show current user', 'output');
+        this.printLine('  date              - Show current date', 'output');
+        this.printLine('  about             - About this project', 'output');
+        this.printLine('  help              - Show this help', 'output');
         this.printLine('');
-        this.printLine('💡 Astuce: Utilisez les flèches ↑ ↓ pour naviguer l\'historique', 'info');
+        this.printLine('Tip: Use arrow keys to navigate history', 'info');
         this.printLine('');
     }
 
     cmdLs(args) {
         const items = Object.keys(this.currentDir.children || {});
         if (items.length === 0) {
-            this.printLine('Répertoire vide', 'output');
+            this.printLine('Empty directory', 'output');
         } else {
             items.forEach(item => {
                 const type = this.currentDir.children[item].type;
-                const icon = type === 'directory' ? '📁' : '📄';
+                const prefix = type === 'directory' ? '[DIR]' : '[FILE]';
                 const color = type === 'directory' ? 'info' : 'output';
-                this.printLine(`${icon} ${item}`, color);
+                this.printLine(`${prefix}  ${item}`, color);
             });
         }
     }
@@ -252,11 +248,9 @@ class NachOSTerminal {
         if (this.currentDir.children && this.currentDir.children[fileName]) {
             const file = this.currentDir.children[fileName];
             if (file.type === 'file') {
-                this.printLine('─────────────────────────────────────', 'info');
                 file.content.split('\n').forEach(line => {
                     this.printLine(line, 'output');
                 });
-                this.printLine('─────────────────────────────────────', 'info');
             } else {
                 this.printLine(`${fileName}: est un répertoire`, 'error');
             }
@@ -283,7 +277,7 @@ class NachOSTerminal {
                 type: 'directory',
                 children: {}
             };
-            this.printLine(`✓ Répertoire créé: ${dirName}`, 'success');
+            this.printLine(`Created: ${dirName}`, 'success');
         }
     }
 
@@ -305,7 +299,7 @@ class NachOSTerminal {
                 type: 'file',
                 content: ''
             };
-            this.printLine(`✓ Fichier créé: ${fileName}`, 'success');
+            this.printLine(`Created: ${fileName}`, 'success');
         }
     }
 
@@ -327,7 +321,7 @@ class NachOSTerminal {
             content: content
         };
 
-        this.printLine(`✓ Fichier écrit: ${fileName} (${content.length} octets)`, 'success');
+        this.printLine(`Written: ${fileName} (${content.length} bytes)`, 'success');
     }
 
     cmdRm(args) {
@@ -339,7 +333,7 @@ class NachOSTerminal {
         const fileName = args[0];
         if (this.currentDir.children && this.currentDir.children[fileName]) {
             delete this.currentDir.children[fileName];
-            this.printLine(`✓ Supprimé: ${fileName}`, 'success');
+            this.printLine(`Removed: ${fileName}`, 'success');
         } else {
             this.printLine(`${fileName}: fichier introuvable`, 'error');
         }
@@ -367,25 +361,22 @@ class NachOSTerminal {
     }
 
     cmdAbout() {
-        this.printLine('═════════════════════════════════════════════════', 'info');
-        this.printLine('NachOS Enhanced Shell - Projet Académique', 'success');
-        this.printLine('═════════════════════════════════════════════════', 'info');
+        this.printLine('NachOS Enhanced Shell - Academic Project', 'success');
         this.printLine('', 'output');
-        this.printLine('Développeur: Mohamed Amine El Ouechrine', 'output');
-        this.printLine('Organisation: Ensimag', 'output');
-        this.printLine('Durée: 2 mois', 'output');
-        this.printLine('Langage: C/C++', 'output');
+        this.printLine('Developer: Mohamed Amine El Ouechrine', 'output');
+        this.printLine('Organization: Ensimag', 'output');
+        this.printLine('Duration: 2 months', 'output');
+        this.printLine('Language: C/C++', 'output');
         this.printLine('', 'output');
-        this.printLine('Caractéristiques:', 'info');
-        this.printLine('• 20+ commandes built-in (filesystem, réseau, système)', 'output');
-        this.printLine('• Protocole FTP custom pour transfert inter-machines', 'output');
-        this.printLine('• 0 memory leak (validation Valgrind)', 'output');
-        this.printLine('• 3 flavors: step4, step5, network', 'output');
-        this.printLine('• Script d\'automation launch-shell.sh', 'output');
+        this.printLine('Features:', 'info');
+        this.printLine('- 20+ built-in commands (filesystem, network, system)', 'output');
+        this.printLine('- Custom FTP protocol for inter-machine transfer', 'output');
+        this.printLine('- 0 memory leaks (Valgrind validated)', 'output');
+        this.printLine('- 3 flavors: step4, step5, network', 'output');
+        this.printLine('- Automation script: launch-shell.sh', 'output');
         this.printLine('', 'output');
-        this.printLine('Cette démo web est une simulation JavaScript', 'info');
-        this.printLine('Le vrai shell fonctionne dans l\'environnement NachOS', 'info');
-        this.printLine('═════════════════════════════════════════════════', 'info');
+        this.printLine('Note: This web demo is a JavaScript simulation.', 'info');
+        this.printLine('The real shell runs in the NachOS environment.', 'info');
     }
 
     // === UTILITAIRES ===
