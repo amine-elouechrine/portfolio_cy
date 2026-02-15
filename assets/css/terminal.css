@@ -1,0 +1,223 @@
+/* ============================================
+   TERMINAL INTERACTIF NACHOS
+   ============================================ */
+
+.terminal-wrapper {
+  margin: var(--spacing-lg) 0;
+}
+
+.terminal-container {
+  background: #0D1117;
+  border: 2px solid #30363d;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+/* En-tête Terminal */
+.terminal-header {
+  background: #161b22;
+  padding: 12px 20px;
+  border-bottom: 1px solid #30363d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+  color: #8b949e;
+  font-size: 13px;
+  flex: 1;
+  text-align: center;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-help, .btn-reset {
+  background: transparent;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-help:hover, .btn-reset:hover {
+  background: #21262d;
+  color: #58A6FF;
+  border-color: #58A6FF;
+}
+
+/* Corps du terminal */
+.terminal-body {
+  padding: 20px;
+  min-height: 400px;
+  max-height: 500px;
+  overflow-y: auto;
+  color: #3FB950;
+  font-size: 14px;
+  line-height: 1.8;
+  font-family: 'Fira Code', monospace;
+}
+
+/* Scrollbar personnalisée */
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: #0D1117;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Ligne de commande */
+.terminal-input-line {
+  padding: 15px 20px;
+  border-top: 1px solid #30363d;
+  display: flex;
+  align-items: center;
+  background: #0D1117;
+}
+
+.prompt {
+  color: #58A6FF;
+  margin-right: 10px;
+  font-weight: bold;
+  user-select: none;
+}
+
+#terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #3FB950;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  outline: none;
+  caret-color: #3FB950;
+}
+
+#terminal-input::selection {
+  background: #58A6FF;
+  color: #0D1117;
+}
+
+/* Lignes de sortie */
+.terminal-line {
+  margin: 3px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.command-line {
+  color: #58A6FF;
+  font-weight: 500;
+}
+
+.output-line {
+  color: #c9d1d9;
+}
+
+.success-line {
+  color: #3FB950;
+}
+
+.error-line {
+  color: #ff6b6b;
+}
+
+.info-line {
+  color: #79c0ff;
+}
+
+/* Aide rapide */
+.terminal-hints {
+  background: #161b22;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-top: var(--spacing-md);
+  border-left: 4px solid #58A6FF;
+}
+
+.terminal-hints p {
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.terminal-hints strong {
+  color: var(--accent-electric-blue);
+}
+
+.terminal-hints code {
+  background: #0D1117;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #3FB950;
+  font-family: 'Fira Code', monospace;
+  margin: 0 4px;
+}
+
+/* Responsive Terminal */
+@media (max-width: 768px) {
+  .terminal-body {
+    font-size: 12px;
+    padding: 15px;
+    min-height: 300px;
+    max-height: 400px;
+  }
+  
+  .terminal-title {
+    display: none;
+  }
+  
+  .terminal-header {
+    padding: 10px 15px;
+  }
+  
+  .terminal-input-line {
+    padding: 12px 15px;
+  }
+  
+  #terminal-input {
+    font-size: 12px;
+  }
+  
+  .terminal-hints {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+}
